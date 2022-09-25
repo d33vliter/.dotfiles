@@ -2,7 +2,7 @@
 "--------------------------
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "Recuerda instalar coc-tabnine coc-pairs coc-emmet
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -11,6 +11,9 @@ Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim'
 
 Plug 'sainnhe/gruvbox-material'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 "--------------------------
@@ -29,21 +32,10 @@ set termguicolors
 colorscheme gruvbox-material
 
 
-
 "KEYMAPS
 
-"NERDTREE
-"Abrir Nerdtree
-map <C-n> :NERDTreeToggle<cr>
-"abrir archivo de manera vertical
-let NERDTreeMapOpenVSplit="v"
-"abrir archivo de manera horizontal
-let NERDTreeMapOpenSplit="h"
-"ver archivos ocultos
-let NERDTreeShowHidden=1
-"cerrar cuando abro un archivo
-let g:NERDTreeQuitOnOpen = 1
-
+"FZF
+map <C-n> :Files<cr>
 
 "moverse entre ventanas
 map <A-Up> <C-w><Up>
