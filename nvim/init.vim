@@ -2,7 +2,7 @@
 "--------------------------
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Recuerda instalar coc-tabnine coc-pairs coc-emmet
 
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
