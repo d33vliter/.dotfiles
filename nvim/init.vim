@@ -4,9 +4,6 @@ call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-
 Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim'
 
