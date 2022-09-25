@@ -1,8 +1,6 @@
-# d33vliter .dotfiles
+# .dotfiles :computer:
 
-Para VIM/NEOVIM
-
-Instalar primero Vim-Plug
+### Para VIM/NEOVIM instalar plugin VIM-PLUG:
 
 #### VIM
 ```sh
