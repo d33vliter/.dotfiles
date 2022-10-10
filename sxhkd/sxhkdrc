@@ -18,6 +18,20 @@ super + Return
 	sakura
 
 
+##pulsemixer
+super alt + m
+    sakura -e 'pulsemixer'
+
+##instalar paquetes
+super + i
+    sakura -e 'fuzzypkg'
+
+super + alt + f
+    sakura -e 'vimvim'
+
+super + R
+    sakura -e 'ranger'
+
 ##Capturar pantalla
 Print 
 	scrot '%Y-%m-%d-%T-screenshot.png' -e 'mv $f ~/captures/'
@@ -65,8 +79,8 @@ super + m
 
 
 ##Minimizar/Maximizar Ventana
-super + {g,v}
-	{bspc node -g hidden,bspc node $(bspc query -N -n .hidden | tail -n1) -g hidden=off}
+super + {g,G}
+    {bspc node -g hidden,bspc node $(bspc query -N -n .hidden | tail -n1) -g hidden=off}
 
 
 # Expandir/Contraer Ventana Mosaico

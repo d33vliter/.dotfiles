@@ -8,16 +8,21 @@
 xrandr --dpi 94
 
 #wallpaper
-pkill nitrogen
-nitrogen --restore &
+#pkill nitrogen
+#nitrogen --restore
 
-#Volume applet
-pkill volumeicon
-volumeicon &
+#feh
+pkill feh
+~/.fehbg
 
 #picom
 pkill picom
-picom -f -D 2 &
+picom -f -D 2 --blur-method "dual_kawase" --blur-strength 3 --experimental-backends --backend glx &
+#picom -f -D 2 &
+
+#clipit
+#pkill clipit
+#clipit &
 
 #Numkey
 numlockx on
@@ -33,14 +38,13 @@ pkill /usr/bin/lxpolkit
 /usr/bin/lxpolkit &
 
 #Notify
-pkill xfce4-notifyd
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#pkill xfce4-notifyd
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
 
-#Panel
-pkill tint2
-tint2 &
-sleep 0.1 &&
-xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
+#polybar
+pkill polybar
+polybar &
+
 
 #Keybind
 pkill sxhkd
@@ -52,14 +56,11 @@ bspc config border_width         1
 bspc config window_gap          12
 
 #colores bordes
-bspc config normal_border_color "#404040"
-bspc config focused_border_color "#A2A2A3"
+bspc config normal_border_color "#404040" #404040
+bspc config focused_border_color "#FFFFFF" #A2A2A3
 
 
 bspc config split_ratio          0.50
 bspc config borderless_monocle   true
-#bspc config gapless_monocle      true
-bspc config single_monocle	true
-
-
-bspc rule -a tint2 layer=below
+bspc config gapless_monocle      true
+bspc config single_monocle	 true

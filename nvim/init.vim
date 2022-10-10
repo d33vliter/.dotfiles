@@ -7,7 +7,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim'
 
-Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/sonokai'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -26,7 +27,7 @@ set splitright
 
 "CONFIGURACIÓN DE TEMAS
 set termguicolors
-colorscheme gruvbox-material
+colorscheme nord
 
 
 "KEYMAPS
