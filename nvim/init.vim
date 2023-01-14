@@ -24,6 +24,7 @@ set autochdir
 set noswapfile
 set splitbelow
 set splitright
+set mouse=
 
 "CONFIGURACIÓN DE TEMAS
 set termguicolors
