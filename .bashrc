@@ -1,7 +1,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
 #alias personalizados
 alias d='dragon -a -x "$(ls -r | fzf -m)"'
@@ -16,7 +16,7 @@ alias wall='sxiv -rqot  ~/Imágenes/wallpapers/ | xargs feh --bg-scale'
 
 #Exports personalizados
 #fzf.vim
-export FZF_DEFAULT_COMMAND="find ~ -type f"
+export FZF_DEFAULT_COMMAND="find -type f -not -path '*/\.git/*'"
 
 #pfetch
 export PF_INFO="ascii title os host kernel uptime pkgs memory editor shell wm"

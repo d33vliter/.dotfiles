@@ -3,46 +3,15 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import funcion as f
 
 mod = "mod4"
 terminal = guess_terminal()
 
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-
-    #minimizar, maximizar ventana
-    Key([mod], "g", lazy.window.toggle_minimize(), desc="Toggle minimization on focused window"),
-    #cambiar a ventana flotante
-    Key([mod], "s", lazy.window.toggle_floating(), desc='Toggle floating'),
-    #ventana en pantalla completa
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='Toggle fullscreen'),
-    
-    #enfocar ventanas arriba abajo izquierda derecha
-    Key([mod], "left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
-
-    #moverse con la ventana a otro workspace
-    Key([mod, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "right", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "down", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
-
-    #split horizontal/vertical
-    Key([mod], "h", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
 
     #lanzar terminal
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-
-    # cambiar de tiling a monocle :v
-    Key([mod], "m", lazy.next_layout(), desc="Toggle between layouts"),
-
-    # cerrar ventana
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
     #reload configs
     Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -50,10 +19,39 @@ keys = [
     #cerrar sesion
     Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
-    #
-    Key([mod], "d", lazy.spawn('rofi -show drun -display-drun ""'),
-        desc="Spawn a command using a prompt widget"),
+    #abrir rofi
+    Key([mod], "d", lazy.spawn('rofi -show drun -display-drun ""'), desc="Abrir rofi en forma de drun"),
+
+
+    #minimizar, maximizar ventana
+    Key([mod], "g", lazy.window.toggle_minimize(), desc="Toggle minimization on focused window"),
+    #cambiar a ventana flotante
+    Key([mod], "s", lazy.window.toggle_floating(), lazy.window.center(), desc='Toggle floating'),
+    #ventana en pantalla completa
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='Toggle fullscreen'),
+    #split horizontal/vertical
+    Key([mod], "h", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    # cambiar de tiling a monocle :v
+    Key([mod], "m", lazy.next_layout(), desc="Toggle between layouts"),
+    # cerrar ventana
+    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+
+    #enfocar ventanas arriba abajo izquierda derecha
+    Key([mod], "left", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "Tab", lazy.group.next_window(), f.float_cycle_f(), desc="Move window focus to other window"),
+
+    #moverse con la ventana a otro workspace
+    Key([mod, "shift"], "left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "up", lazy.layout.shuffle_up(), desc="Move window up"),
+    
+
 ]
+
 
 groups = [Group(i) for i in "1234"]
 
