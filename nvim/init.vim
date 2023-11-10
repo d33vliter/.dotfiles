@@ -2,14 +2,11 @@
 "--------------------------
 call plug#begin()
 
-Plug 'jayli/vim-easycomplete'
-Plug 'SirVer/ultisnips'
-Plug 'neovim/nvim-lspconfig'
 Plug 'windwp/nvim-autopairs'
 Plug 'sainnhe/sonokai'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 "--------------------------
 
@@ -54,3 +51,11 @@ lua << EOF
 require("nvim-autopairs").setup {}
 EOF
 "--------------------------
+
+"COC
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+"---------------------------
