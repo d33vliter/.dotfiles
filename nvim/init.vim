@@ -22,6 +22,7 @@ set mouse=
 set shiftwidth=4
 set tabstop=4
 set background=dark
+
 "--------------------------"
 
 "CONFIGURACIÓN DE TEMAS
@@ -45,14 +46,16 @@ endfunction
 "KEYMAPS
 
 "FZF"
-let FZF_DEFAULT_COMMAND="find ~ -type f -not -path '*/\.git/*'"
+"let FZF_DEFAULT_COMMAND="find ~ -type f -not -path '*/\.git/*'"
+"let FZF_DEFAULT_COMMAND="find ~ -type f -not -path"
 map <C-n> :Files <cr>
 
 "MOVERSE ENTRE VENTANAS"
-map <A-Up> <C-w><Up>
-map <A-Down> <C-w><Down>
-map <A-Left> <C-w><Left>
-map <A-Right> <C-w><Right>
+map <M-Up> <C-w><Up>
+map <M-Down> <C-w><Down>
+map <M-Left> <C-w><Left>
+map <M-Right> <C-w><Right>
+
 
 "ABRIR NUEVA PESTAÑA"
 map <C-t> :tabnew<cr>
@@ -68,6 +71,11 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 "FLOAT TERMINAL"
 let g:floaterm_keymap_toggle = '<F12>'
 
@@ -77,4 +85,5 @@ require("nvim-autopairs").setup {
 	map_cr = false,
 	}
 EOF
+
 "----------------------------"
