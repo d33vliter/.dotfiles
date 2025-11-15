@@ -1,0 +1,51 @@
+#!/bin/sh
+
+###########
+#AUTOSTART#
+###########
+
+#Monitor
+xrandr --dpi 94
+
+#wallpaper
+nitrogen --restore
+
+#picom
+pkill picom
+picom --backend glx -f -D 3 & 
+
+#clipit
+pkill clipit
+clipit &
+
+#Numkey
+numlockx on
+
+#Cursor
+xsetroot -cursor_name left_ptr
+
+#Keyboard
+setxkbmap -layout us -variant intl
+
+#polybar
+pkill polybar
+polybar &
+
+#Keybind
+pkill sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d I II III IV
+bspc config border_width         2
+bspc config window_gap          12
+
+#colores bordes
+bspc config normal_border_color "#404040" #404040
+#bspc config focused_border_color "#FFFFFF" #A2A2A3
+bspc config focused_border_color "#6D0502" #A2A2A3
+
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle	 true
